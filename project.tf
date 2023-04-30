@@ -18,5 +18,8 @@ resource "google_project_iam_binding" "terraform_former_project_iam_binding" {
     for_each = toset(local.terraform_former_project_roles)
     project = local.google_project
     role = each.key
-    members = ["serviceAccount:${google_service_account.terraform_former.email}"]
+    members = [
+        "serviceAccount:${google_service_account.terraform_former.email}", 
+        "user:anshuman09tripathi@gmail.com"
+        ]
 }
