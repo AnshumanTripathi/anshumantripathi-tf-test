@@ -9,11 +9,11 @@
 #  display_name = "terraform-former"
 #  description  = "Service account for terraform"
 #}
-#resource "google_project_service" "my_project_services" {
-#  for_each = toset(local.services)
-#  project  = local.google_project
-#  service  = each.key
-#}
+resource "google_project_service" "my_project_services" {
+  for_each = toset(local.services)
+  project  = local.google_project
+  service  = each.key
+}
 #resource "google_project_iam_binding" "terraform_former_project_iam_binding" {
 #    for_each = toset(local.terraform_former_project_roles)
 #    project = local.google_project
